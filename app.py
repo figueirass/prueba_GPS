@@ -38,13 +38,6 @@ st.markdown("""
         text-align: center;
         font-weight: bold;
     }
-    .category-estandar {
-        background-color: #FFE66D;
-        padding: 10px;
-        border-radius: 5px;
-        text-align: center;
-        font-weight: bold;
-    }
     .category-rechazo {
         background-color: #FF6B6B;
         padding: 10px;
@@ -72,8 +65,6 @@ def main():
         
         - ✨ **Ultra-Oro**: PD < 1%
         - ⭐ **Oro**: PD < 3%
-        - 🟡 **Estándar**: PD < 9%
-        - 🔴 **Rechazo**: PD ≥ 9%
         - 🔴 **Rechazo**: PD ≥ 3%
         
         La garantía FINTECH se mantiene, pero la garantía interna de la SOFOM varía según la categoría.
@@ -186,11 +177,8 @@ def main():
                 elif category == 'Oro':
                     st.markdown('<div class="category-oro">⭐ CATEGORÍA: ORO (PD < 3%)</div>', 
                               unsafe_allow_html=True)
-                elif category == 'Estándar':
-                    st.markdown('<div class="category-estandar">🟡 CATEGORÍA: ESTÁNDAR (PD < 9%)</div>', 
-                              unsafe_allow_html=True)
                 else:
-                    st.markdown('<div class="category-rechazo">🔴 CATEGORÍA: RECHAZO (PD ≥ 9%)</div>', 
+                    st.markdown('<div class="category-rechazo">🔴 CATEGORÍA: RECHAZO (PD ≥ 3%)</div>', 
                               unsafe_allow_html=True)
 
                 st.markdown("")
@@ -255,7 +243,7 @@ def main():
                     st.error(f"""
                     **❌ SOLICITUD RECHAZADA**
                     
-                    La probabilidad de default ({quote['pd']*100:.2f}%) supera el umbral aceptable (9%).
+                    La probabilidad de default ({quote['pd']*100:.2f}%) supera el umbral aceptable (3%).
                     
                     La pérdida esperada de ${quote['expected_loss']:,.2f} MXN es superior al límite operativo.
                     
