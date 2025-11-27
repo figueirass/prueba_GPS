@@ -1,0 +1,156 @@
+
+================================================================================
+DICCIONARIO DE DATOS - DATASET SINTÉTICO CRÉDITOS PYME MÉXICO
+================================================================================
+
+Este dataset es un equivalente mexicano del dataset SBA (Small Business 
+Administration) de Estados Unidos, adaptado al contexto del sistema financiero
+mexicano y calibrado con estadísticas reales de CNBV, INEGI y Banco de México.
+
+VARIABLES:
+----------
+
+1. LoanNr_ChkDgt (str)
+   - Identificador único del préstamo
+   - Formato: MX + 10 dígitos
+
+2. Name (str)
+   - Nombre de la empresa/prestatario (ficticio)
+
+3. City (str)
+   - Ciudad del prestatario
+
+4. State (str)
+   - Estado de la República Mexicana (código de 2-4 letras)
+   - Ej: CDMX, JAL, NL, MEX, etc.
+
+5. Zip (str)
+   - Código postal (5 dígitos)
+
+6. Bank (str)
+   - Nombre del banco que otorga el préstamo
+   - Distribución basada en participación de mercado real
+
+7. BankState (str)
+   - Estado donde se ubica la matriz del banco
+
+8. SCIAN (str)
+   - Sistema de Clasificación Industrial de América del Norte
+   - Equivalente mexicano del NAICS (2 dígitos)
+   - Compatible con clasificación de EE.UU.
+
+9. ApprovalDate (datetime)
+   - Fecha de aprobación del crédito
+
+10. ApprovalFY (int)
+    - Año fiscal de la aprobación
+
+11. Term (int)
+    - Duración del préstamo en meses
+    - Valores típicos: 6, 12, 18, 24, 36, 48, 60, 84, 120
+
+12. NoEmp (int)
+    - Número de empleados del negocio
+    - Rango: 1 a 1,000
+
+13. NewExist (int)
+    - Indicador de negocio nuevo/existente
+    - 1 = Negocio nuevo (< 2 años)
+    - 2 = Negocio existente
+
+14. CreateJob (int)
+    - Número de empleos a crear con el préstamo
+
+15. RetainedJob (int)
+    - Número de empleos a retener
+
+16. FranchiseCode (int)
+    - Código de franquicia (0 si no aplica)
+
+17. UrbanRural (int)
+    - Ubicación del negocio
+    - 1 = Urbano
+    - 2 = Rural
+    - 0 = No especificado
+
+18. RevLineCr (str)
+    - Línea de crédito revolvente
+    - Y = Sí, N = No
+
+19. ChgOffDate (datetime)
+    - Fecha de charge-off (incumplimiento)
+    - NaT si no hubo incumplimiento
+
+20. DisbursementDate (datetime)
+    - Fecha de desembolso del préstamo
+
+21. DisbursementGross (float)
+    - Monto bruto desembolsado (MXN)
+
+22. BalanceGross (float)
+    - Saldo bruto pendiente al momento del incumplimiento
+
+23. MIS_Status (str)
+    - Estado del préstamo
+    - 'P I F' = Paid In Full (Pagado)
+    - 'CHGOFF' = Charged Off (Incobrable)
+
+24. ChgOffPrinGr (float)
+    - Monto del principal cargado a pérdida (MXN)
+    - VARIABLE OBJETIVO PRINCIPAL
+
+25. GrAppv (float)
+    - Monto bruto aprobado por el banco (MXN)
+
+26. NAFIN_Appv (float)
+    - Monto garantizado por Nacional Financiera (MXN)
+    - Equivalente a SBA_Appv en dataset original
+
+27. New (int)
+    - Variable binaria: 1 = negocio nuevo, 0 = existente
+
+28. RealEstate (int)
+    - Variable binaria: 1 = tiene respaldo inmobiliario
+
+29. Portion (float)
+    - Proporción del préstamo garantizada por NAFIN
+    - Rango: 0.0 a 0.8
+
+30. Recession (int)
+    - Indica si el préstamo estuvo activo durante recesión
+    - 1 = Crisis COVID (2020-2021) o Crisis 2008-2009
+    - 0 = Período normal
+
+31. daysterm (int)
+    - Duración del préstamo en días (Term * 30)
+
+32. Default (int)
+    - VARIABLE OBJETIVO BINARIA
+    - 1 = Incumplimiento, 0 = Pagado
+
+================================================================================
+NOTAS METODOLÓGICAS:
+================================================================================
+
+1. CALIBRACIÓN DE DEFAULTS:
+   - Tasa base calibrada con IMOR (Índice de Morosidad) de CNBV
+   - Ajustes por sector, tamaño, ubicación y período económico
+   - Tasa promedio resultante: 5-8% (consistente con datos reales)
+
+2. LOSS GIVEN DEFAULT (LGD):
+   - Sin garantía: 75% (regulación CNBV)
+   - Con garantía inmobiliaria: 35%
+   - Con garantía NAFIN: 25%
+
+3. DISTRIBUCIONES:
+   - Estados: Censos Económicos INEGI 2024
+   - Sectores SCIAN: ENAFIN 2021
+   - Bancos: Participación de mercado CNBV
+   - Montos: Distribución log-normal basada en ENAFIN
+
+4. COMPATIBILIDAD:
+   - SCIAN es compatible con NAICS de EE.UU. a nivel de 2 dígitos
+   - La estructura del dataset es homóloga al SBA dataset original
+   - Puede usarse para transfer learning desde modelos entrenados con SBA
+
+================================================================================
