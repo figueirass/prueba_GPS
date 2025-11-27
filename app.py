@@ -271,8 +271,8 @@ def main():
                         "Pérdida Esperada (EL)": f"${quote['expected_loss']:,.2f} MXN",
                         "Categoría GPS": quote['gps_category'],
                         "Garantía SOFOM": f"{quote['soform_guarantee_pct']*100:.0f}%",
-                        "Sector": f"{scian_code} - {SECTORES_SCIAN[scian_code]['nombre']}",
-                        "Estado": f"{state_code} - {ESTADOS_MEXICO[state_code]}"
+                        "Sector": f"{scian_code} - {SECTORES_SCIAN.get(scian_code, 'No especificado')}",
+                        "Estado": f"{state_code} - {ESTADOS_MEXICO.get(state_code, state_code)}"
                     })
 
             except Exception as e:
