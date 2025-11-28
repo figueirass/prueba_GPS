@@ -70,32 +70,36 @@ st.markdown("""
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
     .comparison-box {
-        background-color: #f8f9fa;
+        background-color: #1e2936;
         padding: 20px;
         border-radius: 8px;
-        border-left: 4px solid #1f77b4;
+        border-left: 4px solid #3498db;
         margin: 10px 0;
+        color: #ffffff;
     }
     .savings-highlight {
-        background-color: #d4edda;
+        background-color: #1e3a28;
         padding: 15px;
         border-radius: 8px;
         border-left: 4px solid #28a745;
         margin: 10px 0;
+        color: #ffffff;
     }
     .cost-highlight {
-        background-color: #f8d7da;
+        background-color: #3a1e1e;
         padding: 15px;
         border-radius: 8px;
         border-left: 4px solid #dc3545;
         margin: 10px 0;
+        color: #ffffff;
     }
     .info-box {
-        background-color: #e7f3ff;
+        background-color: #1e2936;
         padding: 15px;
         border-radius: 8px;
         border-left: 4px solid #0066cc;
         margin: 10px 0;
+        color: #ffffff;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -302,18 +306,18 @@ def main():
                     with comp_col1:
                         st.markdown("""
                         <div class="cost-highlight">
-                        <h4 style="margin-top:0;">Esquema Tradicional (Banco)</h4>
-                        <p><strong>Tasa de Interés:</strong> {:.2f}%</p>
-                        <p><strong>Garantía Requerida:</strong> Activo fijo o inmueble</p>
+                        <h4 style="margin-top:0; color: #ffffff;">Esquema Tradicional (Banco)</h4>
+                        <p style="color: #ffffff;"><strong>Tasa de Interés:</strong> {:.2f}%</p>
+                        <p style="color: #ffffff;"><strong>Garantía Requerida:</strong> Activo fijo o inmueble</p>
                         </div>
                         """.format(quote['original_rate']), unsafe_allow_html=True)
                     
                     with comp_col2:
                         st.markdown("""
                         <div class="savings-highlight">
-                        <h4 style="margin-top:0;">Esquema GPS (Con Garantía)</h4>
-                        <p><strong>Tasa de Interés:</strong> {:.2f}%</p>
-                        <p><strong>Garantía Requerida:</strong> No se requiere garantía real</p>
+                        <h4 style="margin-top:0; color: #ffffff;">Esquema GPS (Con Garantía)</h4>
+                        <p style="color: #ffffff;"><strong>Tasa de Interés:</strong> {:.2f}%</p>
+                        <p style="color: #ffffff;"><strong>Garantía Requerida:</strong> No se requiere garantía real</p>
                         </div>
                         """.format(quote['final_bank_rate']), unsafe_allow_html=True)
 
@@ -333,18 +337,18 @@ def main():
                     with payment_col1:
                         st.markdown("""
                         <div class="comparison-box">
-                        <h5>Pago Mensual Tradicional</h5>
-                        <h3 style="color: #dc3545;">${:,.2f}</h3>
-                        <p style="font-size: 0.9em;">Con tasa {:.2f}%</p>
+                        <h5 style="color: #ffffff;">Pago Mensual Tradicional</h5>
+                        <h3 style="color: #ff6b6b;">${:,.2f}</h3>
+                        <p style="font-size: 0.9em; color: #cccccc;">Con tasa {:.2f}%</p>
                         </div>
                         """.format(traditional_payment, quote['original_rate']), unsafe_allow_html=True)
                     
                     with payment_col2:
                         st.markdown("""
                         <div class="comparison-box">
-                        <h5>Pago Mensual con GPS</h5>
-                        <h3 style="color: #28a745;">${:,.2f}</h3>
-                        <p style="font-size: 0.9em;">Con tasa {:.2f}%</p>
+                        <h5 style="color: #ffffff;">Pago Mensual con GPS</h5>
+                        <h3 style="color: #5dca88;">${:,.2f}</h3>
+                        <p style="font-size: 0.9em; color: #cccccc;">Con tasa {:.2f}%</p>
                         </div>
                         """.format(quote['monthly_payment'], quote['final_bank_rate']), unsafe_allow_html=True)
                     
@@ -353,10 +357,10 @@ def main():
                         total_savings = monthly_savings * term_months
                         st.markdown("""
                         <div class="savings-highlight">
-                        <h5>Ahorro Total</h5>
-                        <h3 style="color: #155724;">${:,.2f}</h3>
-                        <p style="font-size: 0.9em;">Durante {} meses</p>
-                        <p style="font-size: 0.85em; margin-top: 5px;">(${:,.2f}/mes)</p>
+                        <h5 style="color: #ffffff;">Ahorro Total</h5>
+                        <h3 style="color: #5dca88;">${:,.2f}</h3>
+                        <p style="font-size: 0.9em; color: #cccccc;">Durante {} meses</p>
+                        <p style="font-size: 0.85em; margin-top: 5px; color: #cccccc;">(${:,.2f}/mes)</p>
                         </div>
                         """.format(total_savings, term_months, monthly_savings), unsafe_allow_html=True)
 
@@ -369,8 +373,8 @@ def main():
                     with fin_col1:
                         st.markdown("""
                         <div class="info-box">
-                        <h5>Características del Préstamo</h5>
-                        <table style="width:100%; margin-top: 10px;">
+                        <h5 style="color: #ffffff;">Características del Préstamo</h5>
+                        <table style="width:100%; margin-top: 10px; color: #ffffff;">
                         <tr><td><strong>Monto Solicitado:</strong></td><td style="text-align:right;">${:,.2f}</td></tr>
                         <tr><td><strong>Plazo:</strong></td><td style="text-align:right;">{} meses</td></tr>
                         <tr><td><strong>Garantía GPS:</strong></td><td style="text-align:right;">${:,.2f}</td></tr>
@@ -387,8 +391,8 @@ def main():
                     with fin_col2:
                         st.markdown("""
                         <div class="info-box">
-                        <h5>Análisis de Riesgo</h5>
-                        <table style="width:100%; margin-top: 10px;">
+                        <h5 style="color: #ffffff;">Análisis de Riesgo</h5>
+                        <table style="width:100%; margin-top: 10px; color: #ffffff;">
                         <tr><td><strong>Categoría GPS:</strong></td><td style="text-align:right;">{}</td></tr>
                         <tr><td><strong>Probabilidad Default:</strong></td><td style="text-align:right;">{:.2f}%</td></tr>
                         <tr><td><strong>Pérdida Esperada:</strong></td><td style="text-align:right;">${:,.2f}</td></tr>
@@ -453,7 +457,7 @@ def main():
     <div style='text-align: center; color: gray; font-size: 0.9em;'>
     <p>Sistema de Cotización de Créditos PyME México v2.0</p>
     <p>Desarrollado con Machine Learning | ITESO Universidad Jesuita de Guadalajara</p>
-    <p>© 2025 - Todos los derechos reservados</p>
+    <p>© 2024 - Todos los derechos reservados</p>
     </div>
     """, unsafe_allow_html=True)
 
