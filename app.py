@@ -457,7 +457,7 @@ def main():
     <div style='text-align: center; color: gray; font-size: 0.9em;'>
     <p>Sistema de Cotización de Créditos PyME México v2.0</p>
     <p>Desarrollado con Machine Learning | ITESO Universidad Jesuita de Guadalajara</p>
-    <p>© 2024 - Todos los derechos reservados</p>
+    <p>© 2025 - Todos los derechos reservados</p>
     </div>
     """, unsafe_allow_html=True)
 
