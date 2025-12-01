@@ -131,7 +131,7 @@ def load_models():
 
 # --- FUNCIÓN MODIFICADA: calculate_quote ---
 # --- CONSTANTES DE MERCADO ---
-TIIE_ACTUAL = 11.25  # Tasa de referencia aproximada actual en México
+TIIE_ACTUAL = 7.6103  # Tasa de referencia aproximada actual en México
 
 def calculate_quote(approved_amount, term_months, num_employees, 
                     is_new_business, scian_code, state_code, market_bank_rate,
